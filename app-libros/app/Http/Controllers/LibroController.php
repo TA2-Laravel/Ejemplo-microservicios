@@ -15,6 +15,11 @@ class LibroController extends Controller
         return $libros;
     }
 
+    public function ListarUno(Request $request, $idLibro){
+        $libro = Libro::where('id',$idLibro) ->first();
+        return $libro;
+    }
+    
     public function Agregar(Request $request){
         $l = new Libro();
         $l -> titulo = $request -> post('titulo');
