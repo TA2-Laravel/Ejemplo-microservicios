@@ -52,10 +52,8 @@ class ReservaController extends Controller
     }
 
     public function Listar(Request $request){
-        $reservas = Reserva::all();
-        $resultado = $this -> obtenerDatosDeReservas($reservas);
-        
-        return $resultado;
+        $reservas = Reserva::all();        
+        return $this -> obtenerDatosDeReservas($reservas);
     }
 
     public function Agregar(Request $request){
