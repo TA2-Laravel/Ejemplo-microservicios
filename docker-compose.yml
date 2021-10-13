@@ -25,6 +25,15 @@ services:
     volumes:
       - ./app-socios/mysql:/var/lib/mysql
 
+  mariadb-frontend:
+    image: docker.io/bitnami/mariadb:10.2
+    environment:
+      - MARIADB_DATABASE=frontend
+      - MARIADB_ROOT_PASSWORD=password
+    volumes:
+      - ./app-socios/mysql:/var/lib/mysql
+
+
   app-libros:
     tty: true
     restart: unless-stopped
@@ -72,3 +81,18 @@ services:
       - 3002:3000
     volumes:
       - ./app-socios:/app
+
+
+  app-frontend:
+    tty: true
+    restart: unless-stopped
+    image: docker.io/bitnami/laravel:8
+    environment:
+      - DB_HOST=mariadb-frontend
+      - DB_USERNAME=root
+      - DB_DATABASE=frontend
+      - DB_PASSWORD=password
+    ports:
+      - 3003:3000
+    volumes:
+      - ./app-frontend:/app
