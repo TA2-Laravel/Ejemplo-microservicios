@@ -59,8 +59,8 @@ services:
       - DB_USERNAME=root
       - DB_DATABASE=prestamos
       - DB_PASSWORD=password
-      - APP_LIBROS_URL="http://app-libros:3000/api/"
-      - APP_SOCIOS_URL="http://app-socios:3000/api/"
+      - APP_LIBROS_URL=http://app-libros:3000/api/
+      - APP_SOCIOS_URL=http://app-socios:3000/api/
     depends_on:
       - mariadb-prestamos
     ports:
@@ -94,9 +94,9 @@ services:
       - DB_USERNAME=root
       - DB_DATABASE=frontend
       - DB_PASSWORD=password
-      - APP_LIBROS_URL="http://app-libros:3000/api/"
-      - APP_SOCIOS_URL="http://app-socios:3000/api/"
-      - APP_PRESTAMOS_URL="http://app-prestamos:3000/api/"
+      - APP_LIBROS_URL=http://app-libros:3000/api/
+      - APP_SOCIOS_URL=http://app-socios:3000/api/
+      - APP_PRESTAMOS_URL=http://app-prestamos:3000/api/
     ports:
       - 3003:3000
     volumes:
